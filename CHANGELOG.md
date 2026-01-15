@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2026-01-15
+
+### Fixed
+- **FastMCP 2.x CLI compatibility** - Updated Dockerfile to use file path syntax (`src/workoflow_mcp/server.py:mcp`) instead of module path syntax which FastMCP 2.x no longer supports
+- **Relative imports error** - Changed imports in server.py from relative (`from .cache`) to absolute (`from workoflow_mcp.cache`) to work with FastMCP's direct file execution
+- **Docker container network access** - Added `--host 0.0.0.0` to allow connections from outside the container
+- **Health check** - Changed from HTTP endpoint check to TCP socket check since FastMCP doesn't expose `/health`
+
+### Changed
+- **SSE transport** - Switched from `http` to `sse` transport for better compatibility with MCP clients like Claude Desktop via mcp-remote
+- **Package installation** - Now uses `pip install .` with pyproject.toml instead of requirements.txt for proper package installation
+
 ## 2026-01-14
 
 ### Added
