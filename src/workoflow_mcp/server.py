@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 from fastmcp import FastMCP
 from fastmcp.server.dependencies import get_http_headers
 
-from .cache import get_cache
-from .client import get_client
+from workoflow_mcp.cache import get_cache
+from workoflow_mcp.client import get_client
 
 # Load environment variables
 load_dotenv()
